@@ -9,13 +9,13 @@ and fed into this program, it will generate a ledger and optionally a mapping ta
 You are free to choose the base (short ledger) or the extended form with mapped labels and clean names (wide ledger).
 
 ## Open tasks
-[] create simple workflows
-[] rename read_dkbexport()
-[] replace selection by name in format_export()
-[] create wrapper for read_delim for better code readability
-[] clean up update_cdates()
-[] is it possible to mirror custom dates from short to wide format / vice versa?
-[] add testing
+* create simple workflows
+* rename read_dkbexport()
+* replace selection by name in format_export()
+* create wrapper for read_delim for better code readability
+* clean up update_cdates()
+* is it possible to mirror custom dates from short to wide format / vice versa?
+* add testing
 
 # Ledger Data Layout
 ## Short Ledger
