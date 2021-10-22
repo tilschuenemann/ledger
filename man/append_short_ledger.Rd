@@ -7,7 +7,7 @@
 append_short_ledger(path_to_export)
 }
 \arguments{
-\item{dkb_export}{path to dkb export}
+\item{path_to_export}{path to dkb export}
 }
 \description{
 Creates a new short ledger and appends it to the existing one.

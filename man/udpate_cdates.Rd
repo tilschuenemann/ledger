@@ -7,7 +7,7 @@
 udpate_cdates(wide_ledger)
 }
 \arguments{
-\item{final_ledger_path}{Path to final ledger file}
+\item{wide_ledger}{Path to wide ledger file}
 }
 \description{
 Recalculates year, quarter and month columns using date column

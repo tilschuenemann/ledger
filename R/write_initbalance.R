@@ -10,6 +10,7 @@
 #'
 #' @importFrom readr read_delim
 #' @importFrom readr locale
+#' @importFrom readr cols
 #' @importFrom lubridate dmy
 #' @importFrom readr write_excel_csv2
 #'

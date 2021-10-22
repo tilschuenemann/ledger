@@ -1,6 +1,6 @@
 #' Appends short ledgers
 #'
-#' @param dkb_export path to dkb export
+#' @param path_to_export path to dkb export
 #'
 #' @description Creates a new short ledger and appends it to the existing one.
 #' To avoid overlapping date ranges, the report discards the most recent days

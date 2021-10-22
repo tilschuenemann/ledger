@@ -8,6 +8,7 @@
 #'
 #' @importFrom readr read_delim
 #' @importFrom readr locale
+#' @importFrom readr cols
 #' @importFrom dplyr left_join
 #' @importFrom readr write_excel_csv2
 #'

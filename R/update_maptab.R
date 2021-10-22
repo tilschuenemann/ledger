@@ -7,14 +7,15 @@
 #'
 #' @export
 #'
-#' @importFrom  readr read_delim
-#' @importFrom  readr locale
-#' @importFrom  dplyr group_by
-#' @importFrom  dplyr distinct
-#' @importFrom  dplyr arrange
-#' @importFrom  dplyr left_join
-#' @importFrom  dplyr mutate
-#' @importFrom  readr write_excel_csv2
+#' @importFrom readr read_delim
+#' @importFrom readr locale
+#' @importFrom readr cols
+#' @importFrom dplyr group_by
+#' @importFrom dplyr distinct
+#' @importFrom dplyr arrange
+#' @importFrom dplyr left_join
+#' @importFrom dplyr mutate
+#' @importFrom readr write_excel_csv2
 
 update_maptab <- function() {
   if (file.exists("short_ledger.csv")) {

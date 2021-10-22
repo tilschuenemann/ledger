@@ -1,6 +1,6 @@
 #' Update Custom Dates
 #'
-#' @param final_ledger_path Path to final ledger file
+#' @param wide_ledger Path to wide ledger file
 #'
 #' @description Recalculates year, quarter and month columns using date column
 #' (default) or date_custom column (user input)
@@ -9,6 +9,7 @@
 #'
 #' @importFrom readr read_delim
 #' @importFrom readr locale
+#' @importFrom readr cols
 #' @importFrom lubridate ymd
 #' @importFrom dplyr select
 #' @importFrom dplyr mutate
