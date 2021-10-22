@@ -27,10 +27,14 @@
 #' @importFrom dplyr mutate
 #' @importFrom lubridate dmy
 #' @importFrom lubridate floor_date
-#'
+#' @md
 format_export <- function(dkbexport_df) {
 
-  # TODO: select at the end is ugly
+  # clean column names
+  colnames(dkbexport)<- colnames(dkbexport)  %>%
+    gsub(pattern ="[^[:alpha:]*]" ,replacement = "",) %>%
+    iconv(to='ASCII//TRANSLIT')
+
   short_ledger <- dkbexport_df %>%
     select(1, 4, 8) %>%
     mutate(
@@ -39,16 +43,16 @@ format_export <- function(dkbexport_df) {
       year = floor_date(date, unit = "year"),
       month = floor_date(date, unit = "month"),
       quarter = floor_date(date, unit = "quarter"),
-      recipient = dkbexport_df$`Auftraggeber / Begünstigter`,
+      recipient = dkbexport_df$AuftraggeberBegunstigter,
       recipient_clean_custom = NA,
-      amount = dkbexport_df$`Betrag (EUR)`,
+      amount = dkbexport_df$BetragEUR,
       amount_custom = NA,
       type = ifelse(amount > 0, "Income", "Expense"),
       label1_custom = "unknown",
       label2_custom = "unknown",
       label3_custom = "unknown"
     ) %>%
-    select(-Buchungstag, -`Betrag (EUR)`, -`Auftraggeber / Begünstigter`)
+    select(-Buchungstag, -BetragEUR, -AuftraggeberBegunstigter)
 
   return(short_ledger)
 }
