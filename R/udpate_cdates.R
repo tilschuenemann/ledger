@@ -16,6 +16,7 @@
 #' @importFrom dplyr coalesce
 #' @importFrom lubridate floor_date
 #' @importFrom readr write_excel_csv2
+#' @importFrom dplyr relocate
 
 udpate_cdates <- function(wide_ledger) {
   wide_ledger <- read_delim("wide_ledger.csv",
@@ -35,7 +36,8 @@ udpate_cdates <- function(wide_ledger) {
       quarter = floor_date(date_temp, "quarter"),
       month = floor_date(date_temp, "month")
     ) %>%
-    select(-date_temp)
+    select(-date_temp) %>%
+    relocate(c(year,quarter,month),.after = date_custom)
 
   readr::write_excel_csv2(wide_ledger, "wide_ledger.csv")
   print("updated custom dates")
