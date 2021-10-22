@@ -2,6 +2,7 @@
 # ledger2
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/tilschuenemann/ledger2/workflows/R-CMD-check/badge.svg)](https://github.com/tilschuenemann/ledger2/actions)
 <!-- badges: end -->
 
 ledger2 (working title) interacts with the DKB Bank CSV export. Once downloaded
@@ -10,8 +11,7 @@ You are free to choose the base (short ledger) or the extended form with mapped 
 
 ## Open tasks
 * create simple workflows
-* rename read_dkbexport()
-* replace selection by name in format_export()
+* consistent ordering of the columns
 * create wrapper for read_delim for better code readability
 * clean up update_cdates()
 * is it possible to mirror custom dates from short to wide format / vice versa?
