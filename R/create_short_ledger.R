@@ -11,7 +11,7 @@
 #' @importFrom readr cols
 #' @importFrom readr write_excel_csv2
 #'
-create_shortledger <- function(path_to_export) {
+create_short_ledger <- function(path_to_export) {
 
   # debugging
   # path_to_export <- "dkb_export_20211017.csv"

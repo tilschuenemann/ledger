@@ -16,6 +16,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr mutate
 #' @importFrom readr write_excel_csv2
+#' @importFrom rlang .data
 
 update_maptab <- function() {
   if (file.exists("short_ledger.csv")) {
@@ -30,9 +31,9 @@ update_maptab <- function() {
 
   # get distinct recipients
   new_maptab <- short_ledger %>%
-    group_by(recipient) %>%
-    distinct(recipient) %>%
-    arrange(recipient)
+    group_by(.data$recipient) %>%
+    distinct(.data$recipient) %>%
+    arrange(.data$recipient)
 
   # look for file in wd
   if (file.exists("maptab.csv")) {

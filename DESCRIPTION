@@ -12,6 +12,9 @@ RoxygenNote: 7.1.1
 Imports:
   dplyr,
   lubridate,
-  readr
+  readr,
+  rlang
 Suggests: 
+    testthat (>= 3.0.0),
     covr
+Config/testthat/edition: 3

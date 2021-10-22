@@ -13,6 +13,7 @@
 #' @importFrom readr cols
 #' @importFrom lubridate dmy
 #' @importFrom readr write_excel_csv2
+#' @importFrom readr parse_number
 #'
 write_initbalance <- function(dkb_export) {
 

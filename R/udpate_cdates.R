@@ -17,6 +17,7 @@
 #' @importFrom lubridate floor_date
 #' @importFrom readr write_excel_csv2
 #' @importFrom dplyr relocate
+#' @importFrom rlang .data
 
 udpate_cdates <- function(wide_ledger) {
   wide_ledger <- read_delim("wide_ledger.csv",
@@ -25,19 +26,19 @@ udpate_cdates <- function(wide_ledger) {
     trim_ws = TRUE, col_types = cols()
   )
 
-  wide_ledger$date_custom <- ymd(wide_ledger$date_custom)
+  wide_ledger$date_custom <- ymd(.data$date_custom)
 
   # TODO date temp is not a clean solution
   wide_ledger <- wide_ledger %>%
-    select(-year, -quarter, -month) %>%
+    select(-.data$year, -.data$quarter, -.data$month) %>%
     mutate(
-      date_temp = coalesce(date_custom, date),
-      year = floor_date(date_temp, "year"),
-      quarter = floor_date(date_temp, "quarter"),
-      month = floor_date(date_temp, "month")
+      date_temp = coalesce(.data$date_custom, .data$date),
+      year = floor_date(.data$date_temp, "year"),
+      quarter = floor_date(.data$date_temp, "quarter"),
+      month = floor_date(.data$date_temp, "month")
     ) %>%
-    select(-date_temp) %>%
-    relocate(c(year,quarter,month),.after = date_custom)
+    select(-.data$date_temp) %>%
+    relocate(c(.data$year,.data$quarter,.data$month),.after = .data$date_custom)
 
   readr::write_excel_csv2(wide_ledger, "wide_ledger.csv")
   print("updated custom dates")
