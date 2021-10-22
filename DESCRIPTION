@@ -13,3 +13,5 @@ Imports:
   dplyr,
   lubridate,
   readr
+Suggests: 
+    covr

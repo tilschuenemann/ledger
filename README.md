@@ -3,19 +3,25 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/tilschuenemann/ledger2/workflows/R-CMD-check/badge.svg)](https://github.com/tilschuenemann/ledger2/actions)
+[![Codecov test coverage](https://codecov.io/gh/tilschuenemann/ledger2/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tilschuenemann/ledger2?branch=main)
 <!-- badges: end -->
 
 ledger2 (working title) interacts with the DKB Bank CSV export. Once downloaded
 and fed into this program, it will generate a ledger and optionally a mapping table for you.
 You are free to choose the base (short ledger) or the extended form with mapped labels and clean names (wide ledger).
 
-## Open tasks
+# Open Issues
+## functionality
 * create simple workflows
-* consistent ordering of the columns
 * create wrapper for read_delim for better code readability
 * clean up update_cdates()
+
+## architecture
 * is it possible to mirror custom dates from short to wide format / vice versa?
+
+## development
 * add testing
+* add coverage
 
 # Ledger Data Layout
 ## Short Ledger
