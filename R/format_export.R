@@ -28,32 +28,28 @@
 #' @importFrom lubridate dmy
 #' @importFrom lubridate floor_date
 #' @importFrom rlang .data
+#' @importFrom dplyr arrange
 #' @md
 format_export <- function(dkbexport_df) {
 
-  # clean column names
-  colnames(dkbexport)<- colnames(dkbexport)  %>%
-    gsub(pattern ="[^[:alpha:]*]" ,replacement = "",) %>%
-    iconv(to='ASCII//TRANSLIT')
-
   short_ledger <- dkbexport_df %>%
-    select(1, 4, 8) %>%
     mutate(
-      date = dmy(.data$Buchungstag),
+      date = dmy(.data$date),
       date_custom = NA,
       year = floor_date(date, unit = "year"),
       month = floor_date(date, unit = "month"),
       quarter = floor_date(date, unit = "quarter"),
-      recipient = .data$AuftraggeberBegunstigter,
+      recipient = .data$recipient,
       recipient_clean_custom = NA,
-      amount = .data$BetragEUR,
+      amount = .data$amount,
       amount_custom = NA,
+      balance = as.numeric(0),
       type = ifelse(.data$amount > 0, "Income", "Expense"),
       label1_custom = "unknown",
       label2_custom = "unknown",
       label3_custom = "unknown"
     ) %>%
-    select(-.data$Buchungstag, -.data$BetragEUR, -.data$AuftraggeberBegunstigter)
+    arrange(date)
 
   return(short_ledger)
 }
