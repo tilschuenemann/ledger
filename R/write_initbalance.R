@@ -14,16 +14,17 @@
 #' @importFrom lubridate dmy
 #' @importFrom readr write_excel_csv2
 #' @importFrom readr parse_number
-#'
+#' @importFrom tidyr replace_na
 write_initbalance <- function(dkb_export) {
 
-  # dkb_export <- "dkb_export_20211017.csv"
-
+  # read file
+  suppressWarnings({
   ledger_import <- read_delim(dkb_export,
     ";",
     escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
     trim_ws = TRUE, col_types = cols()
   )
+  })
 
   # these are dkb specific
   first_date <- dmy(ledger_import[1, 2])
@@ -34,14 +35,37 @@ write_initbalance <- function(dkb_export) {
 
   # TODO dirty: read final ledger after reading dkb_export - cant get sum of
   # amount in export as formatting is bad
-  short_ledger <- read_delim("short_ledger.csv",
-    ";",
-    escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
-    trim_ws = TRUE, col_types = cols()
-  )
+
+    short_ledger <- read_delim("short_ledger.csv",
+                               ";",
+                               escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
+                               trim_ws = TRUE, col_types = cols()
+    )
 
   first_balance <- sum(short_ledger$amount) * -1 + last_balance
 
-  first_entry <- data.frame(date = first_date, amount = first_balance)
-  readr::write_excel_csv2(first_entry, "initial_balance.csv")
+  # stub entry with same formatting
+  first_entry <- data.frame(date = first_date,
+                            recipient = "LEDGER INITIAL BALANCE",
+                            amount = 0,
+                            balance = first_balance) %>%
+    mutate(
+      date_custom = NA,
+      year = floor_date(date, unit = "year"),
+      month = floor_date(date, unit = "month"),
+      quarter = floor_date(date, unit = "quarter"),
+      recipient_clean_custom = NA,
+      amount_custom = NA,
+      type = ifelse(.data$amount > 0, "Income", "Expense"),
+      label1_custom = "unknown",
+      label2_custom = "unknown",
+      label3_custom = "unknown"
+    )
+
+  # add as first row to short ledger
+  short_ledger <- bind_rows(first_entry, short_ledger)
+  short_ledger$balance <- replace_na(short_ledger$balance, 0)
+
+  # write short ledger
+  readr::write_excel_csv2(short_ledger, "short_ledger.csv")
 }
