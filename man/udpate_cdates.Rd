@@ -4,7 +4,7 @@
 \alias{udpate_cdates}
 \title{Update Custom Dates}
 \usage{
-udpate_cdates(wide_ledger)
+udpate_cdates(ledger_format)
 }
 \arguments{
 \item{wide_ledger}{Path to wide ledger file}
