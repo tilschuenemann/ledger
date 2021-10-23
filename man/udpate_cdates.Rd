@@ -4,10 +4,7 @@
 \alias{udpate_cdates}
 \title{Update Custom Dates}
 \usage{
-udpate_cdates(ledger_format)
-}
-\arguments{
-\item{wide_ledger}{Path to wide ledger file}
+udpate_cdates()
 }
 \description{
 Recalculates year, quarter and month columns using date column

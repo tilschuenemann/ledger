@@ -25,8 +25,8 @@ update_balance <- function() {
     arrange(date)
 
   initial_balance <- short_ledger %>%
-    filter(recipient == "LEDGER INITIAL BALANCE") %>%
-    select(balance) %>%
+    filter(.data$recipient == "LEDGER INITIAL BALANCE") %>%
+    select(.data$balance) %>%
     rename(amount = 1)
 
 
@@ -34,7 +34,7 @@ update_balance <- function() {
   balances <- data.frame(amount = c(initial_balance$amount, short_ledger$amount))
 
   balances <- balances %>%
-    mutate(balance = cumsum(amount)) %>%
+    mutate(balance = cumsum(.data$amount)) %>%
     slice(2:n())
 
   short_ledger$balance <- balances$balance

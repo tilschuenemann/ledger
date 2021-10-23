@@ -7,6 +7,7 @@
 #'
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
+#' @importFrom rlang .data
 clean_dkb <- function(dkbexport_df) {
 
   # clean column names
@@ -16,7 +17,7 @@ clean_dkb <- function(dkbexport_df) {
 
   # change names to standardised format
   dkbexport_df <- dkbexport_df %>%
-    select(Buchungstag,AuftraggeberBegunstigter,BetragEUR) %>%
+    select(.data$Buchungstag,.data$AuftraggeberBegunstigter,.data$BetragEUR) %>%
     rename(date = 1,
            recipient = 2,
            amount = 3)
