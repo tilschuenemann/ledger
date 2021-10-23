@@ -15,6 +15,7 @@
 #' @importFrom readr write_excel_csv2
 #' @importFrom readr parse_number
 #' @importFrom tidyr replace_na
+#' @importFrom dplyr bind_rows
 write_initbalance <- function(dkb_export) {
 
   # read file
