@@ -17,13 +17,14 @@
 append_short_ledger <- function(path_to_export) {
 
   # read and format new export
-  dkb_export_df <- read_delim(path_to_export,
+  dkb_export <- read_delim(path_to_export,
     ";",
     escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
     trim_ws = TRUE, skip = 6
   )
 
-  ledger_appendage <- ledger2::format_export(dkb_export_df)
+  dkb_cleaned <- clean_dkb(dkb_export)
+  ledger_appendage <- ledger2::format_export(dkb_cleaned)
 
   # read current ledger
   current_short_ledger <- read_delim("short_ledger.csv",

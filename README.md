@@ -13,8 +13,8 @@ You are free to choose the base (short ledger) or the extended form with mapped 
 # Open Issues
 ## functionality
 * create simple workflows
-* create wrapper for read_delim for better code readability
 * clean up update_cdates()
+* add paths to arguments
 
 ## architecture
 * is it possible to mirror custom dates from short to wide format / vice versa?

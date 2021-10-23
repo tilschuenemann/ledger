@@ -13,7 +13,8 @@ Imports:
   dplyr,
   lubridate,
   readr,
-  rlang
+  rlang,
+  tidyr
 Suggests: 
     testthat (>= 3.0.0),
     covr
