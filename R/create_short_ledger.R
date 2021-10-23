@@ -13,18 +13,26 @@
 #'
 create_short_ledger <- function(path_to_export) {
 
-  # debugging
   # path_to_export <- "dkb_export_20211017.csv"
 
-  dkbexport <- read_delim(path_to_export,
-    ";",
-    escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
-    trim_ws = TRUE, skip = 6, col_types = cols()
-  )
+  # read file, dont warn about missing column name
+  suppressWarnings({
+    dkb_export <- read_delim(path_to_export,
+                             ";",
+                             escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
+                             trim_ws = TRUE, skip = 6, col_types = cols()
+    )
+  })
 
-  short_ledger <- ledger2::format_export(dkbexport)
 
+  # clean to base format
+  # date, recipient, amount
+  dkb_cleaned <- clean_dkb(dkb_export)
+
+  # create short format
+  short_ledger <- ledger2::format_export(dkb_cleaned)
+
+  # write
   write_excel_csv2(short_ledger, "short_ledger.csv")
-
   print("wrote short_ledger")
 }
