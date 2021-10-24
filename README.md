@@ -10,23 +10,58 @@ ledger2 (working title) interacts with the DKB Bank CSV export. Once downloaded
 and fed into this program, it will generate a ledger and optionally a mapping table for you.
 You are free to choose the base (short ledger) or the extended form with mapped labels and clean names (wide ledger).
 
-# Open Issues
-## functionality
-* create simple workflows
+## Workflow
+ledger2 is designed to currently work in a designated folder and not with paths.
+This is by design to make prototyping easier, but will be changed in the future.
+```
+library("ledger2")
+setwd("my_wd/")
+dkb_export <- "dkb_export_20210101.csv"
+```
+
+#### create new ledger
+```
+create_short_ledger(dkb_export)
+write_initbalance(dkb_export)
+update_balance()
+update_maptab()
+```
+
+#### updated maptab, cdates or balance
+```
+update_maptab()
+update_cdates()
+update_balance()
+```
+
+#### create wide ledger
+```
+create_wide_ledger()
+```
+
+#### append new ledger
+```
+dkb_export <- "dkb_export_20210801.csv"
+append_ledger(dkb_export)
+update_maptab()
+```
+
+## Open Issues
+#### functionality
 * clean up update_cdates()
+* consistent argument naming
+* create simple workflows
 * add paths to arguments
 
-## architecture
-* is it possible to mirror custom dates from short to wide format / vice versa?
-
-## development
+#### development
 * add testing
 * add coverage
 
-# Ledger Data Layout
-## Short Ledger
+## Ledger Data Layout
+#### Short Ledger
  * date
  * amount
+ * balance
  * recipient
  * date_custom
  * year
@@ -39,7 +74,7 @@ You are free to choose the base (short ledger) or the extended form with mapped 
  * label2_custom
  * label3_custom
 
-## Wide Ledger (in addition to the short ledger columns)
+#### Wide Ledger (in addition to the short ledger columns)
 * label1
 * label2
 * label3
@@ -47,7 +82,7 @@ You are free to choose the base (short ledger) or the extended form with mapped 
 
 These will be mapped automatically everytime you run "update_maptab()" successfully.
 
-# Custom Data Entry
+## Custom Data Entry
 General labels are not always best - incase you want to cherry pick some data, you enter that in all of the *_custom columns:
 * date_custom
 * recipient_clean_custom
