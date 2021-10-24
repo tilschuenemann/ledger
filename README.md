@@ -10,17 +10,32 @@ ledger2 (working title) interacts with the DKB Bank CSV export. Once downloaded
 and fed into this program, it will generate a ledger and optionally a mapping table for you.
 You are free to choose the base (short ledger) or the extended form with mapped labels and clean names (wide ledger).
 
+## Table of Contents
+- [Workflow](#workflow)
+    + [create new ledger](#create-new-ledger)
+    + [updated maptab, cdates or balance](#updated-maptab--cdates-or-balance)
+    + [create wide ledger](#create-wide-ledger)
+    + [append new ledger](#append-new-ledger)
+- [Open Issues](#open-issues)
+    + [functionality](#functionality)
+    + [development](#development)
+- [Ledger Data Layout](#ledger-data-layout)
+    + [Short Ledger](#short-ledger)
+    + [Wide Ledger](#wide-ledger)
+
+    - [Custom Data Entry](#custom-data-entry)
+
 ## Workflow
 ledger2 is designed to currently work in a designated folder and not with paths.
 This is by design to make prototyping easier, but will be changed in the future.
-```
+```r
 library("ledger2")
 setwd("my_wd/")
 dkb_export <- "dkb_export_20210101.csv"
 ```
 
 #### create new ledger
-```
+```r
 create_short_ledger(dkb_export)
 write_initbalance(dkb_export)
 update_balance()
@@ -28,19 +43,19 @@ update_maptab()
 ```
 
 #### updated maptab, cdates or balance
-```
+```r
 update_maptab()
 update_cdates()
 update_balance()
 ```
 
 #### create wide ledger
-```
+```r
 create_wide_ledger()
 ```
 
 #### append new ledger
-```
+```r
 dkb_export <- "dkb_export_20210801.csv"
 append_ledger(dkb_export)
 update_maptab()
@@ -48,10 +63,10 @@ update_maptab()
 
 ## Open Issues
 #### functionality
-* clean up update_cdates()
-* consistent argument naming
-* create simple workflows
-* add paths to arguments
+- [ ] clean up update_cdates()
+- [ ] consistent argument naming
+- [ ] create simple workflows
+- [ ] add paths to arguments
 
 #### development
 * add testing
@@ -74,7 +89,8 @@ update_maptab()
  * label2_custom
  * label3_custom
 
-#### Wide Ledger (in addition to the short ledger columns)
+#### Wide Ledger
+These columns are provided additionally to the short ledger columns.
 * label1
 * label2
 * label3
