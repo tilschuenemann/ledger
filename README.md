@@ -22,8 +22,7 @@ You are free to choose the base (short ledger) or the extended form with mapped 
 - [Ledger Data Layout](#ledger-data-layout)
     + [Short Ledger](#short-ledger)
     + [Wide Ledger](#wide-ledger)
-
-    - [Custom Data Entry](#custom-data-entry)
+- [Custom Data Entry](#custom-data-entry)
 
 ## Workflow
 ledger2 is designed to currently work in a designated folder and not with paths.
