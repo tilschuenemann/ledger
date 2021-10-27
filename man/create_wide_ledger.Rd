@@ -4,7 +4,10 @@
 \alias{create_wide_ledger}
 \title{Write wide ledger to disc}
 \usage{
-create_wide_ledger()
+create_wide_ledger(path_to_ledgerdir)
+}
+\arguments{
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
 Reads short ledger and mapping table in working directory,

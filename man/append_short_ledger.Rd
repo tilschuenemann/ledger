@@ -4,10 +4,14 @@
 \alias{append_short_ledger}
 \title{Appends short ledgers}
 \usage{
-append_short_ledger(path_to_export)
+append_short_ledger(path_to_export, export_type, path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_export}{path to dkb export}
+\item{path_to_export}{path to  export}
+
+\item{export_type}{Specify which bank export will be used.}
+
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
 Creates a new short ledger and appends it to the existing one.

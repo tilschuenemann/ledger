@@ -2,16 +2,17 @@
 % Please edit documentation in R/clean_dkb.R
 \name{clean_dkb}
 \alias{clean_dkb}
-\title{Title}
+\title{Clean DKB report.}
 \usage{
 clean_dkb(dkbexport_df)
 }
 \arguments{
-\item{dkbexport_df}{DKV CSV export as dataframe}
+\item{dkbexport_df}{DKB CSV export as dataframe}
 }
 \value{
-Input Dataframe cleaned to contain date, recipient and amount columns
+Input Dataframe cleaned to contain date, recipient and amount columns (base format)
 }
 \description{
-Title
+Clean DKB report.
 }
+\keyword{internal}

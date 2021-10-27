@@ -2,12 +2,12 @@
 % Please edit documentation in R/format_export.R
 \name{format_export}
 \alias{format_export}
-\title{Transform DKB export to short ledger format}
+\title{Transform cleaned export to short ledger format}
 \usage{
-format_export(dkbexport_df)
+format_export(export_clean)
 }
 \arguments{
-\item{dkbexport_df}{The DKB CSV dataframe.}
+\item{export_clean}{CSV dataframe.}
 }
 \value{
 Ledger in short format.
@@ -31,3 +31,4 @@ The final columns are:
 \item label3_custom
 }
 }
+\keyword{internal}

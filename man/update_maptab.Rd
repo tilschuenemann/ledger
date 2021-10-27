@@ -2,9 +2,12 @@
 % Please edit documentation in R/update_maptab.R
 \name{update_maptab}
 \alias{update_maptab}
-\title{Update the Mapping Table}
+\title{Update the Mapping Table.}
 \usage{
-update_maptab()
+update_maptab(path_to_ledgerdir)
+}
+\arguments{
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
 Updates the mapping table CSV in the working directory. If there
@@ -12,3 +15,4 @@ is an existing mapping table, new entries will be appended.
 
 Instead of NA "unknown" is set as it can be ordered in plots later.
 }
+\keyword{internal}

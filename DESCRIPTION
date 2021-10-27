@@ -1,10 +1,10 @@
 Package: ledger2
 Type: Package
-Title: DKB Banking Export Manipulation Made Easy
+Title: Banking Export Manipulation Made Easy
 Version: 0.1.0
 Author: Til Schuenemann
 Maintainer: Til Schuenemann <yourself@somewhere.net>
-Description: Uses the DKB Banking CSV export to create a ledger.
+Description: Uses banking statement CSV exports to create a ledger.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

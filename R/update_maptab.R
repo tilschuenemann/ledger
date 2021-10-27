@@ -1,11 +1,9 @@
-#' Update the Mapping Table
-#'
+#' Update the Mapping Table.
+#' @param path_to_ledgerdir Path to directory that contains all ledger files.
 #' @description Updates the mapping table CSV in the working directory. If there
 #' is an existing mapping table, new entries will be appended.
 #'
 #' Instead of NA "unknown" is set as it can be ordered in plots later.
-#'
-#' @export
 #'
 #' @importFrom readr read_delim
 #' @importFrom readr locale
@@ -17,17 +15,21 @@
 #' @importFrom dplyr mutate
 #' @importFrom readr write_excel_csv2
 #' @importFrom rlang .data
+#' @keywords internal
+update_maptab <- function(path_to_ledgerdir) {
+  sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
+  mp_path <- paste0(path_to_ledgerdir, "maptab.csv")
 
-update_maptab <- function() {
-  if (file.exists("short_ledger.csv")) {
-    short_ledger <- read_delim("short_ledger.csv",
-      ";",
-      escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
-      trim_ws = TRUE, col_types = cols()
-    )
-  } else {
-    stop("no short ledger in wd found!")
-  }
+  # run tests
+  test_ledger_dir(path_to_ledgerdir)
+  test_short_ledger(sl_path)
+  test_maptab(mp_path)
+
+  short_ledger <- read_delim(sl_path,
+    ";",
+    escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
+    trim_ws = TRUE, col_types = cols()
+  )
 
   # get distinct recipients
   new_maptab <- short_ledger %>%
@@ -35,11 +37,10 @@ update_maptab <- function() {
     distinct(.data$recipient) %>%
     arrange(.data$recipient)
 
-  # look for file in wd
-  if (file.exists("maptab.csv")) {
+  if (file.exists(mp_path)) {
     print("found old mapping table")
 
-    old_maptab <- read_delim("maptab.csv",
+    old_maptab <- read_delim(mp_path,
       delim = ";",
       escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
       trim_ws = TRUE, col_types = cols()
@@ -56,6 +57,7 @@ update_maptab <- function() {
       )
   }
 
-  readr::write_excel_csv2(maptab, "maptab.csv")
+  # write and print
+  readr::write_excel_csv2(maptab, mp_path)
   print("updated mapping table")
 }

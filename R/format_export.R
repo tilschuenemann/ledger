@@ -1,7 +1,6 @@
-#' Transform DKB export to short ledger format
+#' Transform cleaned export to short ledger format
 #'
-#' @param dkbexport_df The DKB CSV dataframe.
-#'
+#' @param export_clean CSV dataframe.
 #' @description Transforms the DKV CSV dataframe to the short ledger format.
 #' The final columns are:
 #'
@@ -20,8 +19,6 @@
 #' * label3_custom
 #'
 #' @return Ledger in short format.
-#' @export
-#'
 #' @importFrom dplyr '%>%'
 #' @importFrom dplyr select
 #' @importFrom dplyr mutate
@@ -29,10 +26,11 @@
 #' @importFrom lubridate floor_date
 #' @importFrom rlang .data
 #' @importFrom dplyr arrange
+#' @keywords internal
 #' @md
-format_export <- function(dkbexport_df) {
-
-  short_ledger <- dkbexport_df %>%
+#'
+format_export <- function(export_clean) {
+  short_ledger <- export_clean %>%
     mutate(
       date = dmy(.data$date),
       date_custom = NA,
@@ -47,7 +45,8 @@ format_export <- function(dkbexport_df) {
       type = ifelse(.data$amount > 0, "Income", "Expense"),
       label1_custom = "unknown",
       label2_custom = "unknown",
-      label3_custom = "unknown"
+      label3_custom = "unknown",
+      occurence = 0
     ) %>%
     arrange(date)
 

@@ -2,13 +2,17 @@
 % Please edit documentation in R/create_short_ledger.R
 \name{create_short_ledger}
 \alias{create_short_ledger}
-\title{Write short ledger to disk using DKB CSV export}
+\title{Write short ledger to disk using banking CSV export}
 \usage{
-create_short_ledger(path_to_export)
+create_short_ledger(path_to_export, export_type, path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_export}{Path to DKB CSV export file}
+\item{path_to_export}{Path to CSV export file.}
+
+\item{export_type}{Specify which bank export will be used.}
+
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
-Wrapper around format_export(), which writes short ledger to disc
+Wrapper around clean_dkb() and format_export(), which writes short ledger to disc
 }

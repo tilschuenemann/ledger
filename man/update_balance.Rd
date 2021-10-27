@@ -2,10 +2,14 @@
 % Please edit documentation in R/update_balance.R
 \name{update_balance}
 \alias{update_balance}
-\title{Title}
+\title{Update balance column in short ledger.}
 \usage{
-update_balance()
+update_balance(path_to_ledgerdir)
+}
+\arguments{
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
-Title
+Update balance column in short ledger.
 }
+\keyword{internal}

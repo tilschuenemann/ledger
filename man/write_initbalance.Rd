@@ -2,15 +2,18 @@
 % Please edit documentation in R/write_initbalance.R
 \name{write_initbalance}
 \alias{write_initbalance}
-\title{Write initial balance to disk}
+\title{Add initial balance entry to short ledger.}
 \usage{
-write_initbalance(dkb_export)
+write_initbalance(path_to_export, path_to_ledgerdir)
 }
 \arguments{
-\item{dkb_export}{DKB CSV export}
+\item{path_to_export}{Banking CSV export}
+
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
-Reads the DKB CSV export and writes an initial entry into the
+Reads the banking CSV export and writes an initial entry into the
 working directory. It contains the ledger starting date as well the initial balance.
 This is used as a starting point for a cumulative history plot.
 }
+\keyword{internal}
