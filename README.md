@@ -89,13 +89,8 @@ This package should be extendable enough so that you can contribute.
     2. Create a dataframe with date, recipient and amount columns.
 2. Add it into the switch-case statements inside create_short_ledger.R and
 append_short_ledger.R
-3. Create a pull request!
-
-
-## Localization
-The DKB exports I've been doing were following german conventions so they get read using the ISO-8859-1 locale, commas are interpreted as decimal marks and the csv separator is semicolon.
-
-All files on disc get written using readrs write_excel_csv2(), which encodes the CSV as UTF-8 and uses european locale settings(semicolon as separator, commas as decimal marks).
+3. Add YOURBANKNAME to test_export_type.R
+4. Create a pull request!
 
 ## Testing
 The existing tests are called in every function and will check if the ledger directory and its files(short ledger, mapping table) actually exist, if they have at least one row and if the column names match.
