@@ -1,12 +1,11 @@
 
-# ledger2
+# ledger
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/tilschuenemann/ledger2/workflows/R-CMD-check/badge.svg)](https://github.com/tilschuenemann/ledger2/actions)
-[![Codecov test coverage](https://codecov.io/gh/tilschuenemann/ledger2/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tilschuenemann/ledger2?branch=main)
+[![R-CMD-check](https://github.com/tilschuenemann/ledger/workflows/R-CMD-check/badge.svg)](https://github.com/tilschuenemann/ledger2/actions)
 <!-- badges: end -->
 
-ledger2 is an interface automatically format banking exports. Once you have downloaded and fed your exports into this program, it will generate a ledger and optionally a mapping table for you.
+ledger is an interface automatically format banking exports. Once you have downloaded and fed your exports into this program, it will generate a ledger and optionally a mapping table for you.
 You are free to choose the base (short ledger) or the extended form with mapped labels and clean names (wide ledger).
 
 ## Table of Contents
