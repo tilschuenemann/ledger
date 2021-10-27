@@ -1,4 +1,4 @@
-Package: ledger2
+Package: ledger
 Type: Package
 Title: Banking Export Manipulation Made Easy
 Version: 0.1.0
