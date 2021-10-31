@@ -35,4 +35,10 @@ test_maptab <- function(path_to_maptab) {
   if (nrow(mapping_table) == 0) {
     stop("mapping_table has no rows")
   }
+
+  # check for NAs
+  if(any(is.na(mapping_table))){
+    stop("mapping_table contains NAs")
+  }
+
 }

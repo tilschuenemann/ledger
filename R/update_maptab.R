@@ -37,6 +37,10 @@ update_maptab <- function(path_to_ledgerdir) {
     distinct(.data$recipient) %>%
     arrange(.data$recipient)
 
+  # replace all NAs
+  new_maptab <- new_maptab %>%
+    replace(is.na(.), "unknown")
+
   if (file.exists(mp_path)) {
     print("found old mapping table")
 
@@ -47,6 +51,7 @@ update_maptab <- function(path_to_ledgerdir) {
     )
 
     maptab <- left_join(new_maptab, old_maptab, by = "recipient")
+
   } else {
     maptab <- new_maptab %>%
       mutate(
@@ -59,5 +64,5 @@ update_maptab <- function(path_to_ledgerdir) {
 
   # write and print
   readr::write_excel_csv2(maptab, mp_path)
-  print("updated mapping table")
+  print("updated mapping table and added ",nrow(new_entries)," new rows")
 }
