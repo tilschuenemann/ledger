@@ -15,6 +15,7 @@
 #' @importFrom readr locale
 #' @importFrom readr cols
 #' @importFrom dplyr filter
+#' @importFrom dplyr '%>%'
 #' @importFrom readr write_excel_csv2
 #'
 append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {

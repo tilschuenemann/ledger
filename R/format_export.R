@@ -20,12 +20,9 @@
 #'
 #' @return Ledger in short format.
 #' @importFrom dplyr '%>%'
-#' @importFrom dplyr select
 #' @importFrom dplyr mutate
-#' @importFrom lubridate dmy
-#' @importFrom lubridate floor_date
-#' @importFrom rlang .data
 #' @importFrom dplyr arrange
+#' @importFrom rlang .data
 #' @keywords internal
 #' @md
 #'

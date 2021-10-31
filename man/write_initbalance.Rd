@@ -4,7 +4,7 @@
 \alias{write_initbalance}
 \title{Add initial balance entry to short ledger.}
 \usage{
-write_initbalance(path_to_export, path_to_ledgerdir)
+write_initbalance(path_to_export, export_type, path_to_ledgerdir)
 }
 \arguments{
 \item{path_to_export}{Banking CSV export}

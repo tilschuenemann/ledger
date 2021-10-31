@@ -12,7 +12,6 @@
 #' @importFrom dplyr distinct
 #' @importFrom dplyr arrange
 #' @importFrom dplyr left_join
-#' @importFrom dplyr mutate
 #' @importFrom readr write_excel_csv2
 #' @importFrom rlang .data
 #' @importFrom dplyr anti_join

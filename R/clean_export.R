@@ -6,8 +6,11 @@
 #' @export
 #'
 #' @importFrom readr read_delim
+#' @importFrom readr cols
+#' @importFrom readr locale
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
+#' @importFrom dplyr mutate
 #' @importFrom lubridate dmy
 
 clean_export <- function(path_to_export,export_type){
