@@ -11,6 +11,7 @@
 #' @importFrom readr cols
 #' @importFrom dplyr left_join
 #' @importFrom readr write_excel_csv2
+#' @importFrom dplyr mutate
 #'
 create_wide_ledger <- function(path_to_ledgerdir) {
   sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
@@ -33,7 +34,11 @@ create_wide_ledger <- function(path_to_ledgerdir) {
     trim_ws = TRUE, col_types = cols()
   )
 
-  wide_ledger <- left_join(short_ledger, maptab, by = "recipient")
+  wide_ledger <- left_join(short_ledger, maptab, by = "recipient") %>%
+    mutate(recipient_clean_custom = NA,
+           label1_custom = NA,
+           label2_custom = NA,
+           label3_custom = NA)
 
   # write and print
   readr::write_excel_csv2(wide_ledger, wl_path)

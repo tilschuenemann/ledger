@@ -34,18 +34,11 @@ format_export <- function(export_clean) {
     mutate(
       date = dmy(.data$date),
       date_custom = NA,
-      year = floor_date(date, unit = "year"),
-      month = floor_date(date, unit = "month"),
-      quarter = floor_date(date, unit = "quarter"),
       recipient = .data$recipient,
-      recipient_clean_custom = NA,
       amount = .data$amount,
       amount_custom = NA,
       balance = as.numeric(0),
       type = ifelse(.data$amount > 0, "Income", "Expense"),
-      label1_custom = "unknown",
-      label2_custom = "unknown",
-      label3_custom = "unknown",
       occurence = 0
     ) %>%
     arrange(date)

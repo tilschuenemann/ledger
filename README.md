@@ -45,15 +45,12 @@ append_short_ledger(dkb_export2, ledger_dir)
 | balance                | +            | +           |
 | recipient              | +            | +           |
 | date_custom            | +            | +           |
-| year                   | +            | +           |
-| quarter                | +            | +           |
-| month                  | +            | +           |
-| recipient_clean_custom | +            | +           |
+| recipient_clean_custom |              | +           |
 | amount_custom          | +            | +           |
 | type                   | +            | +           |
-| label1_custom          | +            | +           |
-| label2_custom          | +            | +           |
-| label3_custom          | +            | +           |
+| label1_custom          |              | +           |
+| label2_custom          |              | +           |
+| label3_custom          |              | +           |
 | occurence              | +            | +           |
 | label1                 |              | +           |
 | label2                 |              | +           |

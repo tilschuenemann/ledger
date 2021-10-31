@@ -23,9 +23,7 @@ test_short_ledger <- function(path_to_shortledger) {
   # check for column names
   sl_colnames <- c(
     "date", "recipient", "amount", "balance", "date_custom",
-    "year", "quarter", "month", "recipient_clean_custom",
-    "amount_custom", "type", "label1_custom", "label2_custom",
-    "label3_custom", "occurence"
+    "amount_custom", "type", "occurence"
   )
   sl_colamount <- length(sl_colnames)
 
