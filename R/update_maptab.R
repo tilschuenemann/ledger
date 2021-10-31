@@ -15,6 +15,10 @@
 #' @importFrom dplyr mutate
 #' @importFrom readr write_excel_csv2
 #' @importFrom rlang .data
+#' @importFrom dplyr anti_join
+#' @importFrom dplyr mutate_at
+#' @importFrom tidyr replace_na
+#' @importFrom dplyr vars
 #' @keywords internal
 update_maptab <- function(path_to_ledgerdir) {
   sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
@@ -37,10 +41,6 @@ update_maptab <- function(path_to_ledgerdir) {
     distinct(.data$recipient) %>%
     arrange(.data$recipient)
 
-  # replace all NAs
-  new_maptab <- new_maptab %>%
-    replace(is.na(.), "unknown")
-
   if (file.exists(mp_path)) {
     print("found old mapping table")
 
@@ -52,6 +52,12 @@ update_maptab <- function(path_to_ledgerdir) {
 
     maptab <- left_join(new_maptab, old_maptab, by = "recipient")
 
+    # replace NAs except in recipient
+    maptab <- maptab %>%
+      mutate_at(vars(recipient_clean, label1, label2,label3), ~replace_na(., "unknown"))
+
+    new_rows <- nrow(anti_join(old_maptab,new_maptab, by="recipient"))
+
   } else {
     maptab <- new_maptab %>%
       mutate(
@@ -60,9 +66,11 @@ update_maptab <- function(path_to_ledgerdir) {
         label2 = "unknown",
         label3 = "unknown"
       )
+
+    new_rows <- nrow(maptab)
   }
 
   # write and print
   readr::write_excel_csv2(maptab, mp_path)
-  print("updated mapping table and added ",nrow(new_entries)," new rows")
+  print(paste0("updated mapping table and added ",new_rows," new rows"))
 }

@@ -37,7 +37,10 @@ test_maptab <- function(path_to_maptab) {
   }
 
   # check for NAs
-  if(any(is.na(mapping_table))){
+  if(any(is.na(mapping_table$recipient_clean),
+         is.na(mapping_table$label1),
+         is.na(mapping_table$label2),
+         is.na(mapping_table$label3))){
     stop("mapping_table contains NAs")
   }
 
