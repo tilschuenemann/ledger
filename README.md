@@ -41,23 +41,25 @@ append_short_ledger(dkb_export2, ledger_dir)
 | Column                 | Short Ledger | Wide Ledger |
 |------------------------|--------------|-------------|
 | date                   | +            | +           |
+| date_custom            | +            | +           |
 | amount                 | +            | +           |
+| amount_custom          | +            | +           |
 | balance                | +            | +           |
 | recipient              | +            | +           |
-| date_custom            | +            | +           |
-| recipient_clean_custom |              | +           |
-| amount_custom          | +            | +           |
-| type                   | +            | +           |
-| label1_custom          |              | +           |
-| label2_custom          |              | +           |
-| label3_custom          |              | +           |
 | occurence              | +            | +           |
-| label1                 |              | +           |
-| label2                 |              | +           |
-| label3                 |              | +           |
+| type                   | +            | +           |
 | recipient_clean        |              | +           |
+| recipient_clean_custom |              | +           |
+| label1                 |              | +           |
+| label1_custom          |              | +           |
+| label2                 |              | +           |
+| label2_custom          |              | +           |
+| label3                 |              | +           |
+| label3_custom          |              | +           |
 
-## Custom Data Entry
+
+## 
+#### Custom Data Entry
 General labels are not always best - in case you want to overwrite data, you 
 enter that in any of the *_custom columns:
 
@@ -70,8 +72,8 @@ enter that in any of the *_custom columns:
 
 This way you'll be able to still see the changes you made. 
 
-Year, quarter and month columns are set by both date and date_custom. User-entered data
-takes precedence (using coalesce()).
+#### Occurence
+
 
 ## Supported Banking exports
 Right now the following banking exports are supported:

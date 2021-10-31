@@ -6,6 +6,5 @@
 #'
 update_short_ledger <- function(path_to_ledgerdir) {
   update_maptab(path_to_ledgerdir)
-  #update_cdates(path_to_ledgerdir)
   update_balance(path_to_ledgerdir)
 }
