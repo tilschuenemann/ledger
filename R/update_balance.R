@@ -30,7 +30,7 @@ update_balance <- function(path_to_ledgerdir) {
     arrange(date)
 
   initial_balance <- short_ledger %>%
-    filter(.data$recipient == "LEDGER INITIAL BALANCE") %>%
+    filter(.data$recipient == "~~LEDGER INITIAL BALANCE") %>%
     select(.data$balance) %>%
     rename(amount = 1)
 

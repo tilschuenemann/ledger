@@ -16,10 +16,11 @@
 #' @importFrom tidyr replace_na
 #' @importFrom dplyr bind_rows
 #' @keywords internal
-write_initbalance <- function(path_to_export, path_to_ledgerdir) {
+write_initbalance <- function(path_to_export,export_type, path_to_ledgerdir) {
   sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
   test_ledger_dir(path_to_ledgerdir)
   test_short_ledger(sl_path)
+
 
   short_ledger <- read_delim(sl_path,
     ";",
@@ -27,7 +28,7 @@ write_initbalance <- function(path_to_export, path_to_ledgerdir) {
     trim_ws = TRUE, col_types = cols()
   )
 
-  # TODO test if init entry already exists
+  # test if init entry already exists
   amount_initbal <- short_ledger %>%
     filter(.data$recipient == "LEDGER INITIAL BALANCE") %>%
     nrow()
@@ -36,42 +37,12 @@ write_initbalance <- function(path_to_export, path_to_ledgerdir) {
     stop("initial balance has been set already!")
   }
 
-  # read file
-  suppressWarnings({
-    ledger_import <- read_delim(path_to_export,
-      ";",
-      escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
-      trim_ws = TRUE, col_types = cols()
-    )
-  })
+  ledger_turnover <- sum(short_ledger$amount) * -1
 
-  # these are dkb specific
-  first_date <- dmy(ledger_import[1, 2])
-  last_date <- dmy(ledger_import[2, 2])
-  last_balance <- ledger_import[3, 2] %>%
-    gsub(pattern = "[[:alpha:]]|[[:blank:]]", replacement = "") %>%
-    parse_number(locale = locale(decimal_mark = ",", grouping_mark = "."))
-
-  # TODO dirty: read final ledger after reading dkb_export - cant get sum of
-  # amount in export as formatting is bad
-
-  first_balance <- sum(short_ledger$amount) * -1 + last_balance
-
-  # stub entry with same formatting
-  first_entry <- data.frame(
-    date = NA,
-    recipient = "LEDGER INITIAL BALANCE",
-    amount = 0
-  )
-
-  fe_df <- format_export(first_entry)
-  fe_df$balance <- first_balance
-  fe_df$date <- first_date
-
+  initial_balance <- balance_export(path_to_export,export_type, ledger_turnover)
 
   # add as first row to short ledger
-  short_ledger <- bind_rows(fe_df, short_ledger)
-  short_ledger$balance <- replace_na(short_ledger$balance, 0)
+  short_ledger <- bind_rows(initial_balance, short_ledger)
 
   # write and print
   readr::write_excel_csv2(short_ledger, sl_path)

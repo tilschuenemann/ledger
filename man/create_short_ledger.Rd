@@ -14,5 +14,5 @@ create_short_ledger(path_to_export, export_type, path_to_ledgerdir)
 \item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 }
 \description{
-Wrapper around clean_dkb() and format_export(), which writes short ledger to disc
+Cleans and formats export to short ledger format.
 }

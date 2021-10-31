@@ -23,22 +23,9 @@ append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   test_short_ledger(sl_path)
   test_export_type(export_type)
 
-  switch(export_type,
-    dkb = {
-      # read and format new export
-      suppressWarnings({
-        export <- read_delim(path_to_export,
-          ";",
-          escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
-          trim_ws = TRUE, skip = 6, col_types = cols()
-        )
-      })
+  base_ledger <- clean_export(path_to_export, export_type)
 
-      export_cleaned <- clean_dkb(export)
-    }
-  )
-
-  ledger_appendage <- format_export(export_cleaned)
+  ledger_appendage <- format_export(base_ledger)
 
   # read current ledger
   suppressWarnings({
@@ -64,7 +51,6 @@ append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   updated_ledger <- rbind(current_short_ledger, ledger_appendage)
 
   # write and print
-  # TODO appended x new rows
   write_excel_csv2(updated_ledger, sl_path)
   print(paste0("appended ", newrow_count, " new entries to short ledger!"))
 

@@ -32,10 +32,7 @@
 format_export <- function(export_clean) {
   short_ledger <- export_clean %>%
     mutate(
-      date = dmy(.data$date),
       date_custom = NA,
-      recipient = .data$recipient,
-      amount = .data$amount,
       amount_custom = NA,
       balance = as.numeric(0),
       type = ifelse(.data$amount > 0, "Income", "Expense"),

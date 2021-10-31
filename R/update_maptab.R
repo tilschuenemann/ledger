@@ -21,6 +21,7 @@
 #' @importFrom dplyr vars
 #' @keywords internal
 update_maptab <- function(path_to_ledgerdir) {
+
   sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
   mp_path <- paste0(path_to_ledgerdir, "maptab.csv")
 
@@ -50,9 +51,10 @@ update_maptab <- function(path_to_ledgerdir) {
       trim_ws = TRUE, col_types = cols()
     )
 
-    maptab <- left_join(new_maptab, old_maptab, by = "recipient")
+    maptab <- left_join(old_maptab, new_maptab, by="recipient")
 
     # replace NAs except in recipient
+    # TODO vars and mutate_at were superseded, ?across
     maptab <- maptab %>%
       mutate_at(vars(recipient_clean, label1, label2,label3), ~replace_na(., "unknown"))
 
@@ -72,5 +74,7 @@ update_maptab <- function(path_to_ledgerdir) {
 
   # write and print
   readr::write_excel_csv2(maptab, mp_path)
-  print(paste0("updated mapping table and added ",new_rows," new rows"))
+
+  # TODO this is not working
+  # print(paste0("updated mapping table and added ",new_rows," new rows"))
 }
