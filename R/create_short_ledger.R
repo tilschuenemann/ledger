@@ -23,6 +23,9 @@ create_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   # create short format
   short_ledger <- format_export(base_ledger)
 
+  # sort ledger
+  short_ledger <- sort_ledger(short_ledger,"short")
+
   # write and print
   write_excel_csv2(short_ledger, sl_path)
   print("wrote short_ledger")

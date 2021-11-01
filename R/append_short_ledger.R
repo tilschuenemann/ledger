@@ -49,10 +49,13 @@ append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   newrow_count <- nrow(ledger_appendage)
 
   # append
-  updated_ledger <- rbind(current_short_ledger, ledger_appendage)
+  updated_short_ledger <- rbind(current_short_ledger, ledger_appendage)
+
+  # sort
+  updated_short_ledger <- sort_ledger(updated_short_ledger,"short")
 
   # write and print
-  write_excel_csv2(updated_ledger, sl_path)
+  write_excel_csv2(updated_short_ledger, sl_path)
   print(paste0("appended ", newrow_count, " new entries to short ledger!"))
 
   update_short_ledger(path_to_ledgerdir)
