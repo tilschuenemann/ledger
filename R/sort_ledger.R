@@ -9,7 +9,7 @@
 #' @importFrom dplyr select
 sort_ledger <- function(ledger, ledger_type){
 
-  if(ledger_type != "short" | ledger_type != "wide"){
+  if(ledger_type != "short" & ledger_type != "wide"){
     stop("ledger type not short or wide")
   }
 

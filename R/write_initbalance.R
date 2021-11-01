@@ -41,6 +41,8 @@ write_initbalance <- function(path_to_export,export_type, path_to_ledgerdir) {
   # add as first row to short ledger
   short_ledger <- bind_rows(initial_balance, short_ledger)
 
+  short_ledger <- sort_ledger(short_ledger,"short")
+
   # write and print
   readr::write_excel_csv2(short_ledger, sl_path)
   print("added initial balance to short_ledger")
