@@ -10,6 +10,8 @@
 #' @importFrom readr locale
 #' @importFrom readr cols
 #' @importFrom readr write_excel_csv2
+#' @importFrom dplyr row_number
+#' @importFrom dplyr mutate
 #'
 create_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {
 
@@ -18,18 +20,20 @@ create_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   test_ledger_dir(path_to_ledgerdir)
   test_export_type(export_type)
 
-  base_ledger <- clean_export(path_to_export, export_type)
+  # bank specific cleaning and creating short ledger format
+  short_ledger <- transform_export(path_to_export, export_type)
 
-  # create short format
-  short_ledger <- format_export(base_ledger)
+  # add id
+  short_ledger <- short_ledger %>%
+    mutate(id = row_number())
 
-  # sort ledger
-  short_ledger <- sort_ledger(short_ledger,"short")
+  # sort ledger columns
+  short_ledger <- sort_ledger(short_ledger, "short")
 
   # write and print
   write_excel_csv2(short_ledger, sl_path)
   print("wrote short_ledger")
 
-  write_initbalance(path_to_export, export_type,path_to_ledgerdir)
+  write_initbalance(path_to_export, export_type, path_to_ledgerdir)
   update_short_ledger(path_to_ledgerdir)
 }

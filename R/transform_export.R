@@ -2,7 +2,22 @@
 #'
 #' @param path_to_export path to  export
 #' @param export_type Specify which bank export will be used.
+#' @description Transforms the export CSV dataframe to the short ledger format.
+#' The final columns are:
 #'
+#' * date
+#' * amount
+#' * recipient
+#' * date_custom
+#' * year
+#' * quarter
+#' * month
+#' * recipient_clean_custom
+#' * amount_custom
+#' * type
+#' * label1_custom
+#' * label2_custom
+#' * label3_custom
 #' @keywords internal
 #'
 #' @importFrom readr read_delim
@@ -10,10 +25,13 @@
 #' @importFrom readr locale
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
+#' @importFrom dplyr '%>%'
 #' @importFrom dplyr mutate
+#' @importFrom dplyr arrange
+#' @importFrom rlang .data
 #' @importFrom lubridate dmy
 
-clean_export <- function(path_to_export, export_type) {
+transform_export <- function(path_to_export, export_type) {
   # clean to base ledger (date, recipient, amount)
   switch(export_type,
          dkb = {
@@ -36,6 +54,16 @@ clean_export <- function(path_to_export, export_type) {
          }
   )
 
-  return(base_ledger)
+  short_ledger <- base_ledger %>%
+    mutate(
+      date_custom = NA,
+      amount_custom = NA,
+      balance = as.numeric(0),
+      type = ifelse(.data$amount > 0, "Income", "Expense"),
+      occurence = 0
+    ) %>%
+    arrange(date)
+
+  return(short_ledger)
 
 }

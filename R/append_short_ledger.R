@@ -24,9 +24,8 @@ append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   test_short_ledger(sl_path)
   test_export_type(export_type)
 
-  base_ledger <- clean_export(path_to_export, export_type)
-
-  ledger_appendage <- format_export(base_ledger)
+  # bank specific cleaning and creating short ledger format
+  ledger_appendage <- transform_export(path_to_export, export_type)
 
   # read current ledger
   suppressWarnings({
@@ -46,13 +45,18 @@ append_short_ledger <- function(path_to_export, export_type, path_to_ledgerdir) 
   ledger_appendage <- ledger_appendage %>%
     filter(date >= cutoff_date)
 
+
   newrow_count <- nrow(ledger_appendage)
+
+  # create consistent ids
+  max_id <- max(current_short_ledger$id)
+  ledger_appendage$id <- (max_id+1):(newrow_count+max_id)
 
   # append
   updated_short_ledger <- rbind(current_short_ledger, ledger_appendage)
 
   # sort
-  updated_short_ledger <- sort_ledger(updated_short_ledger,"short")
+  updated_short_ledger <- sort_ledger(updated_short_ledger, "short")
 
   # write and print
   write_excel_csv2(updated_short_ledger, sl_path)

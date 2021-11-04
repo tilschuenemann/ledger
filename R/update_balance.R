@@ -27,7 +27,7 @@ update_balance <- function(path_to_ledgerdir) {
   )
 
   short_ledger <- short_ledger %>%
-    arrange(date)
+    arrange(id)
 
   initial_balance <- short_ledger %>%
     filter(.data$recipient == "~~LEDGER INITIAL BALANCE") %>%
