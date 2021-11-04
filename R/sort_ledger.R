@@ -3,7 +3,6 @@
 #' @param ledger Dataframe containing ledger
 #' @param ledger_type "short" or "wide"
 #'
-#' @export
 #' @keywords internal
 #' @importFrom dplyr '%>%'
 #' @importFrom dplyr select

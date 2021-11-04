@@ -3,7 +3,7 @@
 #' @param path_to_export path to  export
 #' @param export_type Specify which bank export will be used.
 #'
-#' @export
+#' @keywords internal
 #'
 #' @importFrom readr read_delim
 #' @importFrom readr cols
