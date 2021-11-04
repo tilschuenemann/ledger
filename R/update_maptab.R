@@ -42,6 +42,7 @@ update_maptab <- function(path_to_ledgerdir) {
     arrange(.data$recipient)
 
   if (file.exists(mp_path)) {
+
     print("found old mapping table")
 
     old_maptab <- read_delim(mp_path,
@@ -50,14 +51,14 @@ update_maptab <- function(path_to_ledgerdir) {
       trim_ws = TRUE, col_types = cols()
     )
 
-    maptab <- left_join(old_maptab, new_maptab, by="recipient")
+    maptab <- left_join(old_maptab, new_maptab, by = "recipient")
 
     # replace NAs except in recipient
     # TODO vars and mutate_at were superseded, ?across
     maptab <- maptab %>%
-      mutate_at(vars(.data$recipient_clean, .data$label1, .data$label2,.data$label3), ~replace_na(., "unknown"))
+      mutate_at(vars(.data$recipient_clean, .data$label1, .data$label2, .data$label3), ~replace_na(., "unknown"))
 
-    new_rows <- nrow(anti_join(old_maptab,new_maptab, by="recipient"))
+    new_rows <- nrow(anti_join(old_maptab, new_maptab, by = "recipient"))
 
   } else {
     maptab <- new_maptab %>%

@@ -13,7 +13,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom lubridate dmy
 
-clean_export <- function(path_to_export,export_type){
+clean_export <- function(path_to_export, export_type) {
   # clean to base ledger (date, recipient, amount)
   switch(export_type,
          dkb = {
@@ -26,7 +26,7 @@ clean_export <- function(path_to_export,export_type){
            })
 
            base_ledger <- export %>%
-             select(1,4,8) %>%
+             select(1, 4, 8) %>%
              rename(
                date = 1,
                recipient = 2,

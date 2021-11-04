@@ -13,9 +13,9 @@
 #' @importFrom readr parse_number
 #' @importFrom dplyr mutate
 #'
-balance_export <- function(path_to_export, export_type, ledger_turnover){
+balance_export <- function(path_to_export, export_type, ledger_turnover) {
 
-  ledger_initial_balance <- switch (export_type,
+  ledger_initial_balance <- switch(export_type,
     "dkb" = {
       #read file
       suppressWarnings({
@@ -36,7 +36,8 @@ balance_export <- function(path_to_export, export_type, ledger_turnover){
       lib_base <- data.frame(date = first_date,
                                            amount = 0,
                                            recipient = "~~LEDGER INITIAL BALANCE",
-                                           balance = first_balance)
+                                           balance = first_balance,
+                             id = 0)
     })
 
   lib_short <- lib_base %>%
@@ -47,5 +48,3 @@ balance_export <- function(path_to_export, export_type, ledger_turnover){
   return(lib_short)
 
 }
-
-

@@ -41,7 +41,7 @@ create_wide_ledger <- function(path_to_ledgerdir) {
            label3_custom = NA)
 
   # sort ledger
-  wide_ledger <- sort_ledger(wide_ledger,"wide")
+  wide_ledger <- sort_ledger(wide_ledger, "wide")
 
   # write and print
   readr::write_excel_csv2(wide_ledger, wl_path)
