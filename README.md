@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/tilschuenemann/ledger/workflows/R-CMD-check/badge.svg)](https://github.com/tilschuenemann/ledger2/actions)
-[![Codecov test coverage](https://codecov.io/gh/tilschuenemann/ledger2/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tilschuenemann/ledger2?branch=main)
+[![codecov](https://codecov.io/gh/tilschuenemann/ledger/branch/main/graph/badge.svg?token=FY46JP4Y9X)](https://codecov.io/gh/tilschuenemann/ledger)
 <!-- badges: end -->
 
 ledger is an interface for formatting banking exports. The general idea is that every bank export should provide 
