@@ -38,29 +38,6 @@ dkb_export2 <- "dkb_export_20211201.csv"
 append_ledger(dkb_export2, export_type, ledger_dir)
 ```
 
-## Ledger Data Layout
-
-| Column                 | Short Ledger | Wide Ledger |
-|------------------------|--------------|-------------|
-| date                   | +            | +           |
-| date_custom            | +            | +           |
-| amount                 | +            | +           |
-| amount_custom          | +            | +           |
-| balance                | +            | +           |
-| recipient              | +            | +           |
-| occurence              | +            | +           |
-| type                   | +            | +           |
-| recipient_clean        |              | +           |
-| recipient_clean_custom |              | +           |
-| label1                 |              | +           |
-| label1_custom          |              | +           |
-| label2                 |              | +           |
-| label2_custom          |              | +           |
-| label3                 |              | +           |
-| label3_custom          |              | +           |
-
-
-
 ## Custom Data Entry
 General labels are not always best - in case you want to overwrite data in a transparent way, you 
 enter that in any of the *_custom columns:
