@@ -2,16 +2,14 @@
 % Please edit documentation in R/sort_ledger.R
 \name{sort_ledger}
 \alias{sort_ledger}
-\title{Sort ledger}
+\title{Sort ledger columns}
 \usage{
-sort_ledger(ledger, ledger_type)
+sort_ledger(path_to_ledgerdir)
 }
 \arguments{
 \item{ledger}{Dataframe containing ledger}
-
-\item{ledger_type}{"short" or "wide"}
 }
 \description{
-Sort ledger
+Sort ledger columns
 }
 \keyword{internal}
