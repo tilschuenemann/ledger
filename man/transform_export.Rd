@@ -2,31 +2,16 @@
 % Please edit documentation in R/transform_export.R
 \name{transform_export}
 \alias{transform_export}
-\title{Title}
+\title{Transforms export to ledger format}
 \usage{
 transform_export(path_to_export, export_type)
 }
 \arguments{
-\item{path_to_export}{path to  export}
+\item{path_to_export}{Path to export}
 
-\item{export_type}{Specify which bank export will be used.}
+\item{export_type}{Specify which bank export will be used}
 }
 \description{
-Transforms the export CSV dataframe to the short ledger format.
-The final columns are:
-
-* date
-* amount
-* recipient
-* date_custom
-* year
-* quarter
-* month
-* recipient_clean_custom
-* amount_custom
-* type
-* label1_custom
-* label2_custom
-* label3_custom
+Transforms export to ledger format
 }
 \keyword{internal}

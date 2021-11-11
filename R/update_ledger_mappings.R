@@ -1,8 +1,8 @@
-
-#' Updates ledger mappings.
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
+#' Updates ledger mappings
 #'
-#' @export
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
+#'
+#' @keywords internal
 #' @import dplyr
 #' @import readr
 #' @import rlang

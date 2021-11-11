@@ -1,14 +1,13 @@
-
 #' Add initial balance entry to ledger
 #'
-#' @param path_to_export Banking CSV export
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
+#' @param path_to_export Path to export
+#' @param export_type Specify which bank export will be used
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'
 #' @keywords internal
 #' @import readr
 #' @import dplyr
 #' @import lubridate
-
 setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
 
   # tests and prepare path

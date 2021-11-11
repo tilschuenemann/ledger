@@ -2,17 +2,17 @@
 % Please edit documentation in R/append_ledger.R
 \name{append_ledger}
 \alias{append_ledger}
-\title{Title}
+\title{Appends new exports to your ledger}
 \usage{
 append_ledger(path_to_export, export_type, path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_export}{path to  export}
+\item{path_to_export}{Path to export}
 
-\item{export_type}{Specify which bank export will be used.}
+\item{export_type}{Specify which bank export will be used}
 
-\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
-Title
+Appends new exports to your ledger
 }

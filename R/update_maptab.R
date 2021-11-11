@@ -1,24 +1,12 @@
-#' Update the Mapping Table.
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
-#' @description Updates the mapping table CSV in the working directory. If there
-#' is an existing mapping table, new entries will be appended.
+#' Update the mapping table
 #'
-#' Instead of NA "unknown" is set as it can be ordered in plots later.
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'
-#' @importFrom readr read_delim
-#' @importFrom readr locale
-#' @importFrom readr cols
-#' @importFrom dplyr group_by
-#' @importFrom dplyr distinct
-#' @importFrom dplyr arrange
-#' @importFrom dplyr left_join
-#' @importFrom readr write_excel_csv2
-#' @importFrom rlang .data
-#' @importFrom dplyr anti_join
-#' @importFrom dplyr mutate_at
-#' @importFrom tidyr replace_na
-#' @importFrom dplyr vars
 #' @keywords internal
+#' @import dplyr
+#' @import tidyr
+#' @import readr
+#' @import rlang
 update_maptab <- function(path_to_ledgerdir) {
 
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")

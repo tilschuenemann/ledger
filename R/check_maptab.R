@@ -1,10 +1,9 @@
-#' Tests for mapping table.
+#' Tests for mapping table
 #'
-#' @param path_to_maptab Path to mapping table.
+#' @param path_to_maptab Path to mapping table
 #'
 #' @keywords internal
 #' @import readr
-
 check_maptab <- function(path_to_maptab) {
 
   # dont test maptab if there isnt one

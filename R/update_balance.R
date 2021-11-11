@@ -1,5 +1,6 @@
 #' Update balance column in ledger
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
+#'
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'
 #' @keywords internal
 #' @import readr

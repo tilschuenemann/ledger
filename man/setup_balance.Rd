@@ -7,9 +7,11 @@
 setup_balance(path_to_export, export_type, path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_export}{Banking CSV export}
+\item{path_to_export}{Path to export}
 
-\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
+\item{export_type}{Specify which bank export will be used}
+
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
 Add initial balance entry to ledger

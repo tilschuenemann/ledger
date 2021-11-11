@@ -1,6 +1,6 @@
-#' Tests for valid export types.
+#' Tests for valid export types
 #'
-#' @param export_type Specify which bank export will be used.
+#' @param export_type Specify which bank export will be used
 #'
 #' @keywords internal
 check_export_type <- function(export_type) {

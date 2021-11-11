@@ -7,7 +7,7 @@
 update_balance(path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
 Update balance column in ledger

@@ -1,13 +1,12 @@
-#' Title
+#' Appends new exports to your ledger
 #'
-#' @param path_to_export path to  export
-#' @param export_type Specify which bank export will be used.
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
+#' @param path_to_export Path to export
+#' @param export_type Specify which bank export will be used
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'
 #' @export
 #' @import readr
 #' @import dplyr
-
 append_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {
   check_ledger_dir(path_to_ledgerdir)
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")

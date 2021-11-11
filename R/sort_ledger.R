@@ -6,7 +6,6 @@
 #' @import readr
 #' @import dplyr
 #' @import rlang
-#'
 sort_ledger <- function(path_to_ledgerdir) {
 
   check_ledger_dir(path_to_ledgerdir)

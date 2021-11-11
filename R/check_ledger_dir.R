@@ -1,6 +1,6 @@
 #' Test for ledger dir
 #'
-#' @param path_to_ledgerdir Path to directory that contains all ledger files.
+#' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'
 #' @keywords internal
 check_ledger_dir <- function(path_to_ledgerdir) {

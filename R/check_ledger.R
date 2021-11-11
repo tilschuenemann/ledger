@@ -1,10 +1,9 @@
 #' Tests for ledger
 #'
-#' @param path_to_ledger Path to short ledger.
+#' @param path_to_ledger Path to ledger
 #'
 #' @keywords internal
 #' @import readr
-
 check_ledger <- function(path_to_ledger) {
 
   # check for file

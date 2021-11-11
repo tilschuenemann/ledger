@@ -2,14 +2,14 @@
 % Please edit documentation in R/check_maptab.R
 \name{check_maptab}
 \alias{check_maptab}
-\title{Tests for mapping table.}
+\title{Tests for mapping table}
 \usage{
 check_maptab(path_to_maptab)
 }
 \arguments{
-\item{path_to_maptab}{Path to mapping table.}
+\item{path_to_maptab}{Path to mapping table}
 }
 \description{
-Tests for mapping table.
+Tests for mapping table
 }
 \keyword{internal}

@@ -2,13 +2,14 @@
 % Please edit documentation in R/update_ledger_mappings.R
 \name{update_ledger_mappings}
 \alias{update_ledger_mappings}
-\title{Updates ledger mappings.}
+\title{Updates ledger mappings}
 \usage{
 update_ledger_mappings(path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
-Updates ledger mappings.
+Updates ledger mappings
 }
+\keyword{internal}

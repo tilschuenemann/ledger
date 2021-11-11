@@ -7,7 +7,7 @@
 check_ledger(path_to_ledger)
 }
 \arguments{
-\item{path_to_ledger}{Path to short ledger.}
+\item{path_to_ledger}{Path to ledger}
 }
 \description{
 Tests for ledger

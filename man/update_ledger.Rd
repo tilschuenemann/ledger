@@ -7,7 +7,7 @@
 update_ledger(path_to_ledgerdir)
 }
 \arguments{
-\item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
+\item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
 Wrapper for updating mapping table, balance and maps

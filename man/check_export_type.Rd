@@ -2,14 +2,14 @@
 % Please edit documentation in R/check_export_type.R
 \name{check_export_type}
 \alias{check_export_type}
-\title{Tests for valid export types.}
+\title{Tests for valid export types}
 \usage{
 check_export_type(export_type)
 }
 \arguments{
-\item{export_type}{Specify which bank export will be used.}
+\item{export_type}{Specify which bank export will be used}
 }
 \description{
-Tests for valid export types.
+Tests for valid export types
 }
 \keyword{internal}

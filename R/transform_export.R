@@ -1,29 +1,13 @@
-#' Title
+#' Transforms export to ledger format
 #'
-#' @param path_to_export path to  export
-#' @param export_type Specify which bank export will be used.
-#' @description Transforms the export CSV dataframe to the short ledger format.
-#' The final columns are:
+#' @param path_to_export Path to export
+#' @param export_type Specify which bank export will be used
 #'
-#' * date
-#' * amount
-#' * recipient
-#' * date_custom
-#' * year
-#' * quarter
-#' * month
-#' * recipient_clean_custom
-#' * amount_custom
-#' * type
-#' * label1_custom
-#' * label2_custom
-#' * label3_custom
 #' @keywords internal
 #' @import dplyr
 #' @import readr
 #' @import lubridate
 #' @import rlang
-
 transform_export <- function(path_to_export, export_type) {
 
   # clean to base ledger (date, recipient, amount)
