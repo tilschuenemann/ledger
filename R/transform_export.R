@@ -19,26 +19,23 @@
 #' * label2_custom
 #' * label3_custom
 #' @keywords internal
-#'
-#' @importFrom readr read_delim
-#' @importFrom readr cols
-#' @importFrom readr locale
-#' @importFrom dplyr select
-#' @importFrom dplyr rename
-#' @importFrom dplyr '%>%'
-#' @importFrom dplyr mutate
-#' @importFrom dplyr arrange
-#' @importFrom rlang .data
-#' @importFrom lubridate dmy
+#' @import dplyr
+#' @import readr
+#' @import lubridate
+#' @import rlang
 
 transform_export <- function(path_to_export, export_type) {
+
   # clean to base ledger (date, recipient, amount)
   switch(export_type,
+# dkb ---------------------------------------------------------------------
          dkb = {
            suppressWarnings({
              export <- read_delim(path_to_export,
                                   ";",
-                                  escape_double = FALSE, locale = locale(encoding = "ISO-8859-1", decimal_mark = ","),
+                                  escape_double = FALSE,
+                                  locale = locale(encoding = "ISO-8859-1",
+                                                  decimal_mark = ","),
                                   trim_ws = TRUE, skip = 6, col_types = cols()
              )
            })
@@ -54,16 +51,24 @@ transform_export <- function(path_to_export, export_type) {
          }
   )
 
-  short_ledger <- base_ledger %>%
+  ledger <- base_ledger %>%
     mutate(
       date_custom = NA,
       amount_custom = NA,
       balance = as.numeric(0),
       type = ifelse(.data$amount > 0, "Income", "Expense"),
-      occurence = 0
+      occurence = 0,
+      recipient_clean = "unknown",
+      recipient_clean_custom = NA,
+      label1 = "unknown",
+      label1_custom = NA,
+      label2 = "unknown",
+      label2_custom = NA,
+      label3 = "unknown",
+      label3_custom = NA,
     ) %>%
     arrange(date)
 
-  return(short_ledger)
+  return(ledger)
 
 }

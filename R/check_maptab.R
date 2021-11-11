@@ -2,12 +2,10 @@
 #'
 #' @param path_to_maptab Path to mapping table.
 #'
-#' @importFrom readr read_delim
-#' @importFrom readr cols
-#' @importFrom readr locale
 #' @keywords internal
-#'
-test_maptab <- function(path_to_maptab) {
+#' @import readr
+
+check_maptab <- function(path_to_maptab) {
 
   # dont test maptab if there isnt one
   if (!file.exists(path_to_maptab)) {
@@ -16,7 +14,8 @@ test_maptab <- function(path_to_maptab) {
 
   mapping_table <- read_delim(path_to_maptab,
     ";",
-    escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
+    escape_double = FALSE, locale = locale(encoding = "UTF-8",
+                                           decimal_mark = ","),
     trim_ws = TRUE, col_types = cols()
   )
 

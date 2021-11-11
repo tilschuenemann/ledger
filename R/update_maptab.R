@@ -21,22 +21,23 @@
 #' @keywords internal
 update_maptab <- function(path_to_ledgerdir) {
 
-  sl_path <- paste0(path_to_ledgerdir, "short_ledger.csv")
+  ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
   mp_path <- paste0(path_to_ledgerdir, "maptab.csv")
 
   # run tests
-  test_ledger_dir(path_to_ledgerdir)
-  test_short_ledger(sl_path)
-  test_maptab(mp_path)
+  check_ledger_dir(path_to_ledgerdir)
+  check_ledger(ledger_path)
+  check_maptab(mp_path)
 
-  short_ledger <- read_delim(sl_path,
+  ledger <- read_delim(ledger_path,
     ";",
-    escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
+    escape_double = FALSE, locale = locale(encoding = "UTF-8",
+                                           decimal_mark = ","),
     trim_ws = TRUE, col_types = cols()
   )
 
   # get distinct recipients
-  new_maptab <- short_ledger %>%
+  new_maptab <- ledger %>%
     group_by(.data$recipient) %>%
     distinct(.data$recipient) %>%
     arrange(.data$recipient)
@@ -47,7 +48,8 @@ update_maptab <- function(path_to_ledgerdir) {
 
     old_maptab <- read_delim(mp_path,
       delim = ";",
-      escape_double = FALSE, locale = locale(encoding = "UTF-8", decimal_mark = ","),
+      escape_double = FALSE, locale = locale(encoding = "UTF-8",
+                                             decimal_mark = ","),
       trim_ws = TRUE, col_types = cols()
     )
 
@@ -56,7 +58,8 @@ update_maptab <- function(path_to_ledgerdir) {
     # replace NAs except in recipient
     # TODO vars and mutate_at were superseded, ?across
     maptab <- maptab %>%
-      mutate_at(vars(.data$recipient_clean, .data$label1, .data$label2, .data$label3), ~replace_na(., "unknown"))
+      mutate_at(vars(.data$recipient_clean, .data$label1, .data$label2,
+                     .data$label3), ~replace_na(., "unknown"))
 
     new_rows <- nrow(anti_join(old_maptab, new_maptab, by = "recipient"))
 
@@ -75,6 +78,4 @@ update_maptab <- function(path_to_ledgerdir) {
   # write and print
   readr::write_excel_csv2(maptab, mp_path)
 
-  # TODO this is not working
-  # print(paste0("updated mapping table and added ",new_rows," new rows"))
 }
