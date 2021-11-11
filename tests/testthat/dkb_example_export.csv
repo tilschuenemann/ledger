@@ -1,0 +1,22 @@
+Kontonummer:;;;;;;;;;;
+
+Von:;01.01.2021;;;;;;;;;
+Bis:;31.12.2021;;;;;;;;;
+Kontostand vom 31.12.2021:;1.000,42 EUR;;;;;;;;;
+
+Buchungstag;Wertstellung;Buchungstext;Auftraggeber / Begünstigter;Verwendungszweck;Kontonummer;BLZ;Betrag (EUR);Gläubiger-ID;Mandatsreferenz;Kundenreferenz
+01.01.2021;;;Recipient 01;;;;-10;;;
+02.01.2021;;;Recipient 02;;;;-20;;;
+03.01.2021;;;Recipient 03;;;;-30;;;
+04.01.2021;;;Recipient 04;;;;-40;;;
+05.01.2021;;;Recipient 05;;;;-500;;;
+06.01.2021;;;Recipient 06;;;;1000;;;
+07.01.2021;;;Recipient 07;;;;-10;;;
+08.01.2021;;;Recipient 08;;;;-20;;;
+09.01.2021;;;Recipient 09;;;;-30;;;
+10.01.2021;;;Recipient 10;;;;-40;;;
+11.01.2021;;;Recipient 11;;;;-100;;;
+12.01.2021;;;Recipient 12;;;;200;;;
+13.01.2021;;;Recipient 13;;;;-10;;;
+14.01.2021;;;Recipient 14;;;;-20;;;
+15.01.2021;;;Recipient 15;;;;-50;;;

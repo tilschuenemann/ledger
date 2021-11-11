@@ -12,8 +12,9 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
 
   # tests and prepare path
   check_ledger_dir(path_to_ledgerdir)
-  check_ledger(ledger_path)
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
+  check_ledger(ledger_path)
+
 
 
   ledger <- read_delim(ledger_path,
