@@ -1,0 +1,17 @@
+Kontonummer:;;;;;;;;;;
+
+Von:;01.01.2022;;;;;;;;;
+Bis:;31.12.2022;;;;;;;;;
+Kontostand vom 31.12.2022:;1.000,42 EUR;;;;;;;;;
+
+Buchungstag;Wertstellung;Buchungstext;Auftraggeber / Begünstigter;Verwendungszweck;Kontonummer;BLZ;Betrag (EUR);Gläubiger-ID;Mandatsreferenz;Kundenreferenz
+01.01.2022;;;Recipient 21;;;;-10;;;
+02.01.2022;;;Recipient 22;;;;-20;;;
+03.01.2022;;;Recipient 23;;;;-30;;;
+04.01.2022;;;Recipient 24;;;;-40;;;
+05.01.2022;;;Recipient 25;;;;-500;;;
+06.01.2022;;;Recipient 26;;;;1000;;;
+07.01.2022;;;Recipient 27;;;;-10;;;
+08.01.2022;;;Recipient 28;;;;-20;;;
+09.01.2022;;;Recipient 29;;;;-30;;;
+10.01.2022;;;Recipient 20;;;;-40;;;
