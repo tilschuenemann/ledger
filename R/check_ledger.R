@@ -8,7 +8,7 @@ check_ledger <- function(path_to_ledger) {
 
   # check for file
   if (!file.exists(path_to_ledger)) {
-    stop("short ledger doesnt exist in ledger dir")
+    stop("ledger doesnt exist in ledger dir")
   }
 
   ledger <- read_delim(path_to_ledger,

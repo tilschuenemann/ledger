@@ -9,4 +9,9 @@ test_that("ledger_dir parameter is empty string", {
                "path_to_ledgerdir is empty")
 
 })
-# TODO check dir existence
+
+test_that("ledger_dir doesnt exist", {
+  expect_error(ledger:::check_ledger_dir("./error/"),
+               "ledger dir does not exist")
+
+})

@@ -1,0 +1,17 @@
+﻿date;date_custom;amount;amount_custom;recipient;occurence;type;balance;recipient_clean;recipient_clean_custom;label1;label1_custom;label2;label2_custom;label3
+2021-01-01;NA;0;NA;~~LEDGER INITIAL BALANCE;0;Expense;680,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-01;NA;-10;NA;Recipient 01;0;Expense;670,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-02;NA;-20;NA;Recipient 02;0;Expense;650,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-03;NA;-30;NA;Recipient 03;0;Expense;620,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-04;NA;-40;NA;Recipient 04;0;Expense;580,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-05;NA;-500;NA;Recipient 05;0;Expense;80,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-06;NA;1000;NA;Recipient 06;0;Income;1080,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-07;NA;-10;NA;Recipient 07;0;Expense;1070,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-08;NA;-20;NA;Recipient 08;0;Expense;1050,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-09;NA;-30;NA;Recipient 09;0;Expense;1020,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-10;NA;-40;NA;Recipient 10;0;Expense;980,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-11;NA;-100;NA;Recipient 11;0;Expense;880,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-12;NA;200;NA;Recipient 12;0;Income;1080,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-13;NA;-10;NA;Recipient 13;0;Expense;1070,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-14;NA;-20;NA;Recipient 14;0;Expense;1050,42;unknown;NA;unknown;NA;unknown;NA;unknown
+2021-01-15;NA;-50;NA;Recipient 15;0;Expense;1000,42;unknown;NA;unknown;NA;unknown;NA;unknown
