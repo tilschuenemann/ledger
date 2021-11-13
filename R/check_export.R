@@ -1,10 +1,16 @@
+#' Title
+#'
+#' @param path_to_export
+#'
+#' @keywords internal
+#' @importFrom tools file_ext
 check_export <- function(path_to_export){
 
   if(!is.character(path_to_export)){
     stop("path_to_export is not a character vector")
   }
 
-  if(length(path_to_export)==0){
+  if(nchar(path_to_export)==0){
     stop("path_to_export is empty character vector")
   }
   if(!file.exists(path_to_export)){

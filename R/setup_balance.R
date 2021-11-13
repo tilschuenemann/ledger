@@ -30,7 +30,7 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
     filter(.data$recipient == "~~LEDGER INITIAL BALANCE") %>%
     nrow()
 
-  if (amount_initbal > 1) {
+  if (amount_initbal >= 1) {
     stop("initial balance has been set already!")
   }
 

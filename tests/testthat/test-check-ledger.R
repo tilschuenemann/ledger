@@ -7,7 +7,7 @@ test_that("ledger has no rows", {
                ,"short ledger has no rows")
 })
 
-# test_that("ledger doesnt exist", {
-#   expect_error(ledger:::check_ledger(test_path(""))
-#                ,"short ledger doesnt exist in ledger dir")
-# })
+test_that("ledger doesnt exist", {
+  expect_error(ledger:::check_ledger(test_path("non_existent_ledger.csv"))
+               ,"ledger doesnt exist in ledger dir")
+})
