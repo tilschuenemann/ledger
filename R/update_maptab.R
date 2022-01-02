@@ -44,10 +44,8 @@ update_maptab <- function(path_to_ledgerdir) {
     maptab <- left_join(old_maptab, new_maptab, by = "recipient")
 
     # replace NAs except in recipient
-    # TODO vars and mutate_at were superseded, ?across
     maptab <- maptab %>%
-      mutate_at(vars(.data$recipient_clean, .data$label1, .data$label2,
-                     .data$label3), ~replace_na(., "unknown"))
+      mutate(across(c(.data$recipient_clean,.data$label1,.data$label2,.data$label3),~ replace_na(.,"unknown")))
 
     new_rows <- nrow(anti_join(old_maptab, new_maptab, by = "recipient"))
 
