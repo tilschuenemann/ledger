@@ -41,13 +41,14 @@ update_maptab <- function(path_to_ledgerdir) {
       trim_ws = TRUE, col_types = cols()
     )
 
-    maptab <- left_join(old_maptab, new_maptab, by = "recipient")
+    maptab <- left_join(new_maptab,old_maptab, by = "recipient")
 
     # replace NAs except in recipient
+    # TODO tidy selection everything except recipient
     maptab <- maptab %>%
       mutate(across(c(.data$recipient_clean,.data$label1,.data$label2,.data$label3),~ replace_na(.,"unknown")))
 
-    new_rows <- nrow(anti_join(old_maptab, new_maptab, by = "recipient"))
+    new_rows <- nrow(anti_join(new_maptab, old_maptab, by = "recipient"))
 
   } else {
     maptab <- new_maptab %>%
@@ -62,6 +63,10 @@ update_maptab <- function(path_to_ledgerdir) {
   }
 
   # write and print
-  readr::write_excel_csv2(maptab, mp_path)
+  write_excel_csv2(maptab, mp_path)
+
+  if (new_rows>0) {
+    print(paste0("added ",new_rows," new recipients to mapping table"))
+  }
 
 }
