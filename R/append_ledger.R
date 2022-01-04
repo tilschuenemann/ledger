@@ -23,7 +23,7 @@ append_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {
                                        escape_double = FALSE,
                                        locale = locale(encoding = "UTF-8",
                                                        decimal_mark = ","),
-                                       trim_ws = TRUE, col_types = cols(),
+                                       trim_ws = TRUE, col_types = cols(), progress = F
     )
   })
 

@@ -20,7 +20,8 @@ transform_export <- function(path_to_export, export_type) {
                                   escape_double = FALSE,
                                   locale = locale(encoding = "ISO-8859-1",
                                                   decimal_mark = ","),
-                                  trim_ws = TRUE, skip = 6, col_types = cols()
+                                  trim_ws = TRUE, skip = 6, col_types = cols(),
+                                  name_repair = "minimal"
              )
            })
 

@@ -21,7 +21,7 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
     ";",
     escape_double = FALSE, locale = locale(encoding = "UTF-8",
                                            decimal_mark = ","),
-    trim_ws = TRUE, col_types = cols()
+    trim_ws = TRUE, col_types = cols(),progress = F
   )
 
   # TODO extract to test class
@@ -47,7 +47,8 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
           ";",
           escape_double = FALSE, locale = locale(encoding = "ISO-8859-1",
                                                  decimal_mark = ","),
-          trim_ws = TRUE, col_types = cols()
+          trim_ws = TRUE, col_types = cols(),
+          name_repair = "minimal", progress = F
         )
       })
 
@@ -87,7 +88,7 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
   ledger <- bind_rows(initial_balance, ledger)
 
   # write and print
-  write_excel_csv2(ledger, ledger_path)
+  write_excel_csv2(ledger, ledger_path,progress = F)
   print("added initial balance to ledger")
 
 }

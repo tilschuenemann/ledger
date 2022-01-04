@@ -15,14 +15,14 @@ create_ledger <- function(path_to_ledgerdir, export_type, path_to_export) {
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
 
   # bank specific cleaning and creating short ledger format
-  ledger <- transform_export(path_to_export, export_type)
+  ledger <- ledger:::transform_export(path_to_export, export_type)
 
   # write and print
   write_excel_csv2(ledger, ledger_path)
   print("wrote ledger")
 
   # write balance
-  setup_balance(path_to_export, export_type, path_to_ledgerdir)
+  ledger:::setup_balance(path_to_export, export_type, path_to_ledgerdir)
 
   # update balance and maptab
   update_ledger(path_to_ledgerdir)
