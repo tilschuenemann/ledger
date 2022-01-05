@@ -6,6 +6,7 @@
 #' @import readr
 #' @import dplyr
 #' @import rlang
+#' @import tidyr
 sort_ledger <- function(path_to_ledgerdir) {
 
   check_ledger_dir(path_to_ledgerdir)
@@ -26,7 +27,7 @@ sort_ledger <- function(path_to_ledgerdir) {
              .data$recipient, .data$occurence, .data$type, .data$balance,
              .data$recipient_clean, .data$recipient_clean_custom, .data$label1,
              .data$label1_custom, .data$label2, .data$label2_custom,
-             .data$label3, .data$label3_custom)
+             .data$label3, .data$label3_custom, everything())
 
   write_excel_csv2(ledger_ordered, ledger_path)
   print("sorted ledger columns")
