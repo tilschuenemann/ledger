@@ -33,7 +33,28 @@ transform_export <- function(path_to_export, export_type) {
                amount = 3) %>%
              mutate(
                date = dmy(.data$date))
-         }
+         },
+        bbb = {
+          suppressWarnings({
+            export <- read_delim(path_to_export,
+                                 ";",
+                                 escape_double = FALSE,
+                                 locale = locale(encoding = "ISO-8859-1",
+                                                 decimal_mark = ","),
+                                 trim_ws = TRUE, skip = 12, col_types = cols(),
+                                 name_repair = "minimal"
+            )
+          })
+          base_ledger <- export %>%
+            select(1, 4, 12) %>%
+            rename(
+              date = 1,
+              recipient = 2,
+              amount = 3) %>%
+            mutate(
+              date = dmy(.data$date))
+
+        }
   )
 
   ledger <- base_ledger %>%

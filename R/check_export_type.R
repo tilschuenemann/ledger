@@ -5,7 +5,7 @@
 #' @keywords internal
 check_export_type <- function(export_type) {
 
-  valid_types <- c("dkb")
+  valid_types <- c("dkb","bbb")
 
   if (!is.character(export_type)) {
     stop("export_type is not a character vector")

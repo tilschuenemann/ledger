@@ -65,6 +65,13 @@ setup_balance <- function(path_to_export, export_type, path_to_ledgerdir) {
         recipient = "~~LEDGER INITIAL BALANCE",
         balance = first_balance
       )
+    },
+  "bbb" = {
+    lib_base <- data.frame(
+      date = min(ledger$date),
+      amount = 0,
+      recipient = "~~LEDGER INITIAL BALANCE",
+      balance = 0)
     }
   )
 

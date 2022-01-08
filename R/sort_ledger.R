@@ -21,7 +21,6 @@ sort_ledger <- function(path_to_ledgerdir) {
                        trim_ws = TRUE, col_types = cols()
   )
 
-  # TODO ordering by select will remove all non specified columns
     ledger_ordered <- ledger %>%
       select(.data$date, .data$date_custom, .data$amount, .data$amount_custom,
              .data$recipient, .data$occurence, .data$type, .data$balance,
