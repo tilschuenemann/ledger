@@ -9,7 +9,7 @@
 #' @import dplyr
 append_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {
   check_ledger_dir(path_to_ledgerdir)
-  ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
+  ledger_path <- file.path(path_to_ledgerdir, "ledger.csv")
   check_ledger(ledger_path)
   check_export_type(export_type)
 
