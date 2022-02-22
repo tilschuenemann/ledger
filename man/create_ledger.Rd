@@ -2,17 +2,17 @@
 % Please edit documentation in R/create_ledger.R
 \name{create_ledger}
 \alias{create_ledger}
-\title{Title}
+\title{Creates the standard ledger}
 \usage{
-create_ledger(path_to_ledgerdir, export_type, path_to_export)
+create_ledger(path_to_ledgerdir, path_to_export, export_type)
 }
 \arguments{
 \item{path_to_ledgerdir}{Path to directory that contains all ledger files.}
 
-\item{export_type}{Specify which bank export will be used.}
-
 \item{path_to_export}{Path to CSV export file.}
+
+\item{export_type}{Specify which bank export will be used.}
 }
 \description{
-Title
+Creates the standard ledger
 }
