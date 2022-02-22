@@ -47,5 +47,4 @@ append_ledger <- function(path_to_export, export_type, path_to_ledgerdir) {
   print(paste0("appended ", newrow_count, " new entries to ledger!"))
 
   update_ledger(path_to_ledgerdir)
-
 }
