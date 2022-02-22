@@ -6,10 +6,8 @@
 [![codecov](https://codecov.io/gh/tilschuenemann/ledger/branch/main/graph/badge.svg?token=FY46JP4Y9X)](https://codecov.io/gh/tilschuenemann/ledger)
 <!-- badges: end -->
 
-ledger is an interface for formatting banking exports. The general idea is that every bank export should provide 
-tabular data with 1. a date, 2. a recipient and 3. the amount that was exchanged. This is the base format, which is used for creating the ledger.
+ledger is an interface for formatting banking exports. The idea is that every bank export should provide tabular data with a date, a recipient and an amount. This data gets extended by this library to add a mapping table for categorization, enabling further analysis and dashboarding.
 
-That is the foundation for visualisation and dashboarding. I've started to work on a Shiny app, which I'll reference here when it's online.
 
 ## Table of Contents
 - [Workflow](#workflow)
@@ -21,21 +19,21 @@ That is the foundation for visualisation and dashboarding. I've started to work 
 ## Workflow
 
 ```r
-library("ledger2")
+library("ledger")
 
 ledger_dir <- "my_ledger/"              # designated directory for all your ledger files
 export_type <- "dkb"                    # specify from which bank your export is from
 dkb_export <- "dkb_export_20210101.csv" # path to your export
 
 # starting a ledger
-create_ledger(dkb_export, export_type, ledger_dir)
+create_ledger(dkb_export, ledger_dir, export_type)
 
 # updating ledgers mapping table or balance
 update_ledger(ledger_dir)
 
 # append a new ledger to your short ledger
 dkb_export2 <- "dkb_export_20211201.csv"
-append_ledger(dkb_export2, export_type, ledger_dir)
+append_ledger(dkb_export2, ledger_dir, export_type)
 ```
 
 ## Custom Data Entry
@@ -57,17 +55,17 @@ This is especially useful when determining what your baseline income and expense
 Right now the following banking exports are supported:
 
 * DKB
+* BBB
 
 If you want to contribute another export, this is what you need supply:
 
-1. Add your bank to valid_types in text_export_type.R
+1. Add your bank to valid_types in check_export_type.R
 
-2. Add your section inside the switch case to clean_export.R. Generally the export is read
-and tailored to the base format (date, recipient, amount)
+2. Add functions transform_export_YOURBANK.R and setup_balance_YOURBANK.R
 
-3. In balance_export.R you'll need to add an extra case inside the switch case statement.
- The initial balance gets set from the export. 
+3. Implement the new function call in transform_export.R and setup_balance.R
 
+4. Create a pull request!
 
 ## Testing
 The existing tests are called in every function and will check if the ledger directory and its files(short ledger, mapping table) actually exist, if they have at least one row and if the column names match.
