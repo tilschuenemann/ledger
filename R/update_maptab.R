@@ -12,7 +12,6 @@ update_maptab <- function(path_to_ledgerdir) {
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
   mp_path <- paste0(path_to_ledgerdir, "maptab.csv")
 
-  # run tests
   check_ledger_dir(path_to_ledgerdir)
   check_ledger(ledger_path)
   check_maptab(mp_path)
@@ -24,7 +23,6 @@ update_maptab <- function(path_to_ledgerdir) {
     trim_ws = TRUE, col_types = cols()
   )
 
-  # get distinct recipients
   new_maptab <- ledger %>%
     group_by(.data$recipient) %>%
     distinct(.data$recipient) %>%
@@ -62,7 +60,6 @@ update_maptab <- function(path_to_ledgerdir) {
     new_rows <- nrow(maptab)
   }
 
-  # write and print
   write_excel_csv2(maptab, mp_path)
 
   if (new_rows>0) {

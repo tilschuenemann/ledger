@@ -1,4 +1,4 @@
-#' Wrapper for updating mapping table, balance and maps
+#' Wrapper for updating mapping table, balance and ledger maps
 #'
 #' @param path_to_ledgerdir Path to directory that contains all ledger files
 #'

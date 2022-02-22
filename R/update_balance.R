@@ -6,9 +6,9 @@
 #' @import readr
 #' @import dplyr
 update_balance <- function(path_to_ledgerdir) {
+
   ledger_path <- paste0(path_to_ledgerdir, "ledger.csv")
 
-  # run tests
   check_ledger_dir(path_to_ledgerdir)
   check_ledger(ledger_path)
 
@@ -22,20 +22,16 @@ update_balance <- function(path_to_ledgerdir) {
   ledger <- ledger %>%
     arrange(date)
 
-  initial_balance <- ledger %>%
-    filter(.data$recipient == "~~LEDGER INITIAL BALANCE") %>%
-    select(.data$balance) %>%
-    rename(amount = 1)
 
-  # TODO too difficult
-  balances <- data.frame(amount = c(initial_balance$amount, ledger$amount))
+  inital_amount = ledger[ledger$recipient=="~~LEDGER INITIAL BALANCE" & !is.na(ledger$recipient),]$balance
+
+  balances <- data.frame(amount = c(inital_amount, ledger$amount))
   balances <- balances %>%
     mutate(balance = cumsum(.data$amount)) %>%
     slice(2:n())
 
   ledger$balance <- balances$balance
 
-  # write and print
   write_excel_csv2(ledger, ledger_path)
   print("updated ledger balances")
 }
