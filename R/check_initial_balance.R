@@ -1,8 +1,7 @@
 #' Title
 #'
-#' @param ledger
+#' @param ledger ledger
 #'
-#' @return
 #' @export
 #'
 #' @import dplyr

@@ -7,7 +7,7 @@
 transform_export_dkb(path_to_export)
 }
 \arguments{
-\item{export}{}
+\item{path_to_export}{path_to_export}
 }
 \description{
 Transformation for DKB bank

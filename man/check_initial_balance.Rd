@@ -7,10 +7,7 @@
 check_initial_balance(ledger)
 }
 \arguments{
-\item{ledger}{}
-}
-\value{
-
+\item{ledger}{ledger}
 }
 \description{
 Title

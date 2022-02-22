@@ -7,10 +7,9 @@
 setup_balance_dkb(path_to_export, ledger)
 }
 \arguments{
-\item{ledger}{}
-}
-\value{
+\item{path_to_export}{path_to_export}
 
+\item{ledger}{ledger}
 }
 \description{
 Title

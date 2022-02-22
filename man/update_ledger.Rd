@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_ledger.R
 \name{update_ledger}
 \alias{update_ledger}
-\title{Wrapper for updating mapping table, balance and maps}
+\title{Wrapper for updating mapping table, balance and ledger maps}
 \usage{
 update_ledger(path_to_ledgerdir)
 }
@@ -10,5 +10,5 @@ update_ledger(path_to_ledgerdir)
 \item{path_to_ledgerdir}{Path to directory that contains all ledger files}
 }
 \description{
-Wrapper for updating mapping table, balance and maps
+Wrapper for updating mapping table, balance and ledger maps
 }

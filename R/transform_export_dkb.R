@@ -1,6 +1,6 @@
 #' Transformation for DKB bank
 #'
-#' @param export
+#' @param path_to_export path_to_export
 #'
 #' @export
 #'
